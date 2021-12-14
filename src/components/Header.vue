@@ -19,16 +19,16 @@
             <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-base font-medium text-gray-500 hover:text-gray-900">
               {{ item.name }}
             </a>
-            <div class="text-base font-medium text-gray-500 hover:text-gray-900">
+            <!-- <div class="text-base font-medium text-gray-500 hover:text-gray-900">
               <router-link to="/careers">
                 Careers
               </router-link>
-            </div>
+            </div> -->
           </PopoverGroup>
           <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <a :href="contact" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700">
-              Contact
-            </a>
+            <router-link tag="a" :to="'/careers'" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-6 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700">
+                Careers
+              </router-link>
           </div>
         </div>
 
@@ -55,9 +55,9 @@
                   </a>
                 </div>
                 <div class="mt-6">
-                  <a :href="contact" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700">
-                    Contact
-                  </a>
+                  <router-link tag="a" :to="'/careers'" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700">
+                    Career
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -84,6 +84,7 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/#about' },
   { name: 'Projects', href: '/#projects' },
+  { name: 'Contacts', href: '/#contact' },
 ]
 
 export default {

@@ -1,5 +1,5 @@
 <template>
-  <div class="relative bg-white" id="contact">
+  <div class="relative bg-gray-50" id="contact">
     <div class="absolute inset-0">
       <div class="absolute inset-y-0 left-0 w-1/2 bg-gray-50" />
     </div>
@@ -47,7 +47,7 @@
           </p>
         </div>
       </div>
-      <div class="bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
+      <div class="bg-gray-50 py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
         <div class="max-w-lg mx-auto lg:max-w-none">
           <form action="#" method="POST" class="grid grid-cols-1 gap-y-6">
             <div>
