@@ -63,7 +63,7 @@
             <div class="lg:mx-auto lg:max-w-7xl lg:px-8 mt-8 lg:grid lg:grid-cols-3 lg:grid-flow-col-dense lg:gap-24">
                 <div class="col-span-2 mb-8">
                     <div>
-                        <form class="space-y-8 divide-y divide-gray-200">
+                        <form class="space-y-8 divide-y divide-gray-200" @submit.prevent>
                             <div class="space-y-8 divide-y divide-gray-200">
                                 <div class="pt-8">
                                     <div>
@@ -74,12 +74,18 @@
                                     </div>
                                     <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
                                         <div class="sm:col-span-3">
-                                            <label for="first-name" class="block text-sm font-medium text-gray-700">
+                                            <label for="name" class="block text-sm font-medium text-gray-700">
                                                 Full Name </label>
                                             <div class="mt-1">
-                                                <input type="text" name="first-name" id="first-name"
+                                                <input type="text" v-model="form.name" name="name" id="name"
                                                     autocomplete="given-name"
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                                <span class="text-xs text-red-500" v-if="serverErrors.name">
+                                                    <template v-for="(error, key) in serverErrors.name"
+                                                        :key="key + 'name'">
+                                                        <div>{{error}}</div>
+                                                    </template>
+                                                </span>
                                             </div>
                                         </div>
 
@@ -87,28 +93,47 @@
                                             <label for="email" class="block text-sm font-medium text-gray-700"> Email
                                                 address </label>
                                             <div class="mt-1">
-                                                <input id="email" name="email" type="email" autocomplete="email"
+                                                <input id="email" v-model="form.email" name="email" type="email"
+                                                    autocomplete="email"
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                                <span class="text-xs text-red-500" v-if="serverErrors.email">
+                                                    <template v-for="(error, key) in serverErrors.email"
+                                                        :key="key + 'email'">
+                                                        <div>{{error}}</div>
+                                                    </template>
+                                                </span>
                                             </div>
                                         </div>
 
                                         <div class="sm:col-span-3">
-                                            <label for="first-name" class="block text-sm font-medium text-gray-700">
+                                            <label for="phone" class="block text-sm font-medium text-gray-700">
                                                 Phone Number </label>
                                             <div class="mt-1">
-                                                <input type="text" name="first-name" id="first-name"
+                                                <input type="text" name="phone" v-model="form.phone" id="phone"
                                                     autocomplete="given-name"
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                                <span class="text-xs text-red-500" v-if="serverErrors.phone">
+                                                    <template v-for="(error, key) in serverErrors.phone"
+                                                        :key="key + 'phone'">
+                                                        <div>{{error}}</div>
+                                                    </template>
+                                                </span>
                                             </div>
                                         </div>
 
                                         <div class="sm:col-span-3">
-                                            <label for="street-address" class="block text-sm font-medium text-gray-700">
+                                            <label for="address" class="block text-sm font-medium text-gray-700">
                                                 Address </label>
                                             <div class="mt-1">
-                                                <input type="text" name="street-address" id="street-address"
-                                                    autocomplete="street-address"
+                                                <input type="text" name="address" v-model="form.address" id="address"
+                                                    autocomplete="address"
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                                <span class="text-xs text-red-500" v-if="serverErrors.address">
+                                                    <template v-for="(error, key) in serverErrors.address"
+                                                        :key="key + 'address'">
+                                                        <div>{{error}}</div>
+                                                    </template>
+                                                </span>
                                             </div>
                                         </div>
 
@@ -116,8 +141,15 @@
                                             <label for="city" class="block text-sm font-medium text-gray-700"> City
                                             </label>
                                             <div class="mt-1">
-                                                <input type="text" name="city" id="city" autocomplete="address-level2"
+                                                <input type="text" name="city" v-model="form.city" id="city"
+                                                    autocomplete="address-level2"
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                                <span class="text-xs text-red-500" v-if="serverErrors.city">
+                                                    <template v-for="(error, key) in serverErrors.city"
+                                                        :key="key + 'city'">
+                                                        <div>{{error}}</div>
+                                                    </template>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -128,8 +160,8 @@
                                 <label class="block text-sm font-medium text-gray-700 mt-8 mb-2">
                                     CV
                                 </label>
-                                <div
-                                    class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                                <div class="mt-1 flex justify-center cursor-pointer px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
+                                    @click="selectNewPhoto">
                                     <div class="space-y-1 text-center">
                                         <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none"
                                             viewBox="0 0 48 48" aria-hidden="true">
@@ -141,7 +173,8 @@
                                             <label for="file-upload"
                                                 class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                                 <span>Upload your CV</span>
-                                                <input id="file-upload" name="file" type="file" class="sr-only">
+                                                <input ref="file" id="file-upload" name="file" type="file"
+                                                    class="sr-only">
                                             </label>
                                             <p class="pl-1">or drag and drop</p>
                                         </div>
@@ -150,13 +183,18 @@
                                         </p>
                                     </div>
                                 </div>
+                                <span class="text-xs text-red-500" v-if="serverErrors.file">
+                                    <template v-for="(error, key) in serverErrors.file" :key="key + 'file'">
+                                        <div>{{error}}</div>
+                                    </template>
+                                </span>
                             </div>
 
                             <div class="pt-5">
                                 <div class="flex justify-end">
                                     <button type="button"
                                         class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
-                                    <button type="submit"
+                                    <button type="submit" @click="submit"
                                         class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
                                 </div>
                             </div>
@@ -237,12 +275,24 @@
         data() {
             return {
                 job: {},
+                form: {
+                    name: '',
+                    phone: '',
+                    email: '',
+                    address: '',
+                    city: '',
+                    file: '',
+                },
+                serverErrors: {}
             }
         },
         mounted() {
             this.getJob()
         },
         methods: {
+            selectNewPhoto() {
+                // this.$refs.file.click();
+            },
             async getJob() {
                 try {
                     const {
@@ -251,6 +301,39 @@
                     this.job = data.data
 
                 } catch (error) {
+                    console.log(error);
+                }
+            },
+            async submit() {
+                const formData = new FormData();
+                this.form.file = this.$refs.file.files[0];
+                console.log(this.$refs.file.files[0]);
+                formData.append('name', this.form.name)
+                formData.append('email', this.form.email)
+                formData.append('phone', this.form.phone)
+                formData.append('address', this.form.address)
+                formData.append('city', this.form.city)
+                formData.append('file', this.form.file)
+                try {
+                    const config = {
+                        headers: {
+                            'content-type': 'multipart/form-data'
+                        }
+                    }
+                    const {
+                        data
+                    } = await axios.post(`http://careers.technocloud.live/api/jobs/${this.id}/apply`, formData,
+                        config)
+                    this.serverErrors = {}
+                    this.$router.push({
+                        name: 'appled-job',
+                        params: {
+                            applyJob: JSON.stringify(data.data)
+                        }
+                    })
+
+                } catch (error) {
+                    this.serverErrors = error.response.data.errors
                     console.log(error);
                 }
             },

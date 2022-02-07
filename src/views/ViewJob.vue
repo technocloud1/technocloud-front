@@ -69,14 +69,14 @@
               <div class="text-gray-500" v-html="job.job_requirements"></div>
             </div>
           </div>
-          <router-link type="button" :to="{ name: 'apply', params: {id: job.id}}"
+          <router-link type="button" v-if="job?.id" :to="{ name: 'apply', params: {id: job.id}}"
             class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Apply To Position
             <MailIcon class="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />
           </router-link>
         </div>
         <div>
-          <router-link type="button" :to="{ name: 'apply', params: {id: job.id}}"
+          <router-link type="button" v-if="job?.id" :to="{ name: 'apply', params: {id: job.id}}"
             class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Apply To Position
             <MailIcon class="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />

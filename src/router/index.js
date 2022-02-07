@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import Careers from "../views/Careers.vue";
 import ViewJob from "../views/ViewJob.vue";
 import ApplyJob from "../views/ApplyJob.vue";
+import ApplyedJob from "../views/ApplyedJob.vue";
 
 const routes = [
   {
@@ -26,6 +27,12 @@ const routes = [
     name: "apply",
     props:true,
     component: ApplyJob,
+  },
+  {
+    path: "/careers/appled-job",
+    name: "appled-job",
+    props:true,
+    component: ApplyedJob,
   },
 ];
 
