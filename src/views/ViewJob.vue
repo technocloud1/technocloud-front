@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="relative">
+    <div class="relative px-8 lg:px-0">
       <nav class="lg:mx-auto lg:max-w-7xl lg:px-8 flex my-8" aria-label="Breadcrumb">
         <ol role="list" class="flex items-center space-x-4">
           <li>
@@ -70,45 +70,45 @@
             </div>
           </div>
           <router-link type="button" v-if="job?.id" :to="{ name: 'apply', params: {id: job.id}}"
-            class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
             Apply To Position
             <MailIcon class="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />
           </router-link>
         </div>
         <div>
           <router-link type="button" v-if="job?.id" :to="{ name: 'apply', params: {id: job.id}}"
-            class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            class="hidden lg:inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
             Apply To Position
             <MailIcon class="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />
           </router-link>
           <div class="py-8">
             <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
-              <div class="sm:col-span-4">
+              <div class="lg:col-span-4 col-span-1">
                 <dt class="text-sm font-medium text-gray-500">Career Level</dt>
                 <dd class="mt-1 text-sm text-gray-900">{{job.career_level}}</dd>
               </div>
-              <div class="sm:col-span-4">
+              <div class="lg:col-span-4 col-span-1">
                 <dt class="text-sm font-medium text-gray-500">Experience Range</dt>
                 <dd class="mt-1 text-sm text-gray-900">{{job.min_exp_y}} to {{job.max_exp_y}} years</dd>
               </div>
-              <div class="sm:col-span-4">
+              <div class="lg:col-span-4 col-span-1">
                 <dt class="text-sm font-medium text-gray-500">Salary Range</dt>
                 <dd class="mt-1 text-sm text-gray-900" v-if="hide_salary">${{job.salary_min}} - ${{job.salary_max}}</dd>
                 <dd class="mt-1 text-sm text-gray-900" v-else>Confidential</dd>
               </div>
-              <div class="sm:col-span-4">
+              <div class="lg:col-span-4 col-span-1">
                 <dt class="text-sm font-medium text-gray-500">Education Level</dt>
                 <dd class="mt-1 text-sm text-gray-900">{{job.education_level}}</dd>
               </div>
-              <div class="sm:col-span-4">
+              <div class="lg:col-span-4 col-span-1">
                 <dt class="text-sm font-medium text-gray-500">Gender</dt>
                 <dd class="mt-1 text-sm text-gray-900">{{job.gender}}</dd>
               </div>
-              <div class="sm:col-span-4">
+              <div class="lg:col-span-4 col-span-1">
                 <dt class="text-sm font-medium text-gray-500">Address</dt>
                 <dd class="mt-1 text-sm text-gray-900">{{job.address}}</dd>
               </div>
-              <div class="sm:col-span-4">
+              <div class="lg:col-span-4 col-span-1">
                 <dt class="text-sm font-medium text-gray-500">Info Email</dt>
                 <dd class="mt-1 text-sm text-gray-900">{{job.recipient_email}}</dd>
               </div>
@@ -159,7 +159,7 @@
         try {
           const {
             data
-          } = await axios.get(`http://careers.technocloud.live/api/jobs/${this.id}`)
+          } = await axios.get(`https://careers.technocloud.live/api/jobs/${this.id}`)
           this.job = data.data
 
         } catch (error) {

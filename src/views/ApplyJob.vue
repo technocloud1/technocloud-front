@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div class="relative">
+        <div class="relative px-8 lg:px-0">
             <nav class="lg:mx-auto lg:max-w-7xl lg:px-8 flex my-8" aria-label="Breadcrumb">
                 <ol role="list" class="flex items-center space-x-4">
                     <li>
@@ -63,7 +63,7 @@
             <div class="lg:mx-auto lg:max-w-7xl lg:px-8 mt-8 lg:grid lg:grid-cols-3 lg:grid-flow-col-dense lg:gap-24">
                 <div class="col-span-2 mb-8">
                     <div>
-                        <form class="space-y-8 divide-y divide-gray-200" @submit.prevent>
+                        <div class="space-y-8 divide-y divide-gray-200">
                             <div class="space-y-8 divide-y divide-gray-200">
                                 <div class="pt-8">
                                     <div>
@@ -79,8 +79,8 @@
                                             <div class="mt-1">
                                                 <input type="text" v-model="form.name" name="name" id="name"
                                                     autocomplete="given-name"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
-                                                <span class="text-xs text-red-500" v-if="serverErrors.name">
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                                <span class="text-xs text-red-500" v-if="serverErrors?.name">
                                                     <template v-for="(error, key) in serverErrors.name"
                                                         :key="key + 'name'">
                                                         <div>{{error}}</div>
@@ -95,8 +95,8 @@
                                             <div class="mt-1">
                                                 <input id="email" v-model="form.email" name="email" type="email"
                                                     autocomplete="email"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
-                                                <span class="text-xs text-red-500" v-if="serverErrors.email">
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                                <span class="text-xs text-red-500" v-if="serverErrors?.email">
                                                     <template v-for="(error, key) in serverErrors.email"
                                                         :key="key + 'email'">
                                                         <div>{{error}}</div>
@@ -111,8 +111,8 @@
                                             <div class="mt-1">
                                                 <input type="text" name="phone" v-model="form.phone" id="phone"
                                                     autocomplete="given-name"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
-                                                <span class="text-xs text-red-500" v-if="serverErrors.phone">
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                                <span class="text-xs text-red-500" v-if="serverErrors?.phone">
                                                     <template v-for="(error, key) in serverErrors.phone"
                                                         :key="key + 'phone'">
                                                         <div>{{error}}</div>
@@ -127,8 +127,8 @@
                                             <div class="mt-1">
                                                 <input type="text" name="address" v-model="form.address" id="address"
                                                     autocomplete="address"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
-                                                <span class="text-xs text-red-500" v-if="serverErrors.address">
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                                <span class="text-xs text-red-500" v-if="serverErrors?.address">
                                                     <template v-for="(error, key) in serverErrors.address"
                                                         :key="key + 'address'">
                                                         <div>{{error}}</div>
@@ -143,8 +143,8 @@
                                             <div class="mt-1">
                                                 <input type="text" name="city" v-model="form.city" id="city"
                                                     autocomplete="address-level2"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" />
-                                                <span class="text-xs text-red-500" v-if="serverErrors.city">
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                                <span class="text-xs text-red-500" v-if="serverErrors?.city">
                                                     <template v-for="(error, key) in serverErrors.city"
                                                         :key="key + 'city'">
                                                         <div>{{error}}</div>
@@ -171,7 +171,7 @@
                                         </svg>
                                         <div class="flex text-sm text-gray-600">
                                             <label for="file-upload"
-                                                class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                                class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
                                                 <span>Upload your CV</span>
                                                 <input ref="file" id="file-upload" name="file" type="file"
                                                     class="sr-only">
@@ -183,7 +183,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <span class="text-xs text-red-500" v-if="serverErrors.file">
+                                <span class="text-xs text-red-500" v-if="serverErrors?.file">
                                     <template v-for="(error, key) in serverErrors.file" :key="key + 'file'">
                                         <div>{{error}}</div>
                                     </template>
@@ -193,45 +193,45 @@
                             <div class="pt-5">
                                 <div class="flex justify-end">
                                     <button type="button"
-                                        class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
+                                        class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Cancel</button>
                                     <button type="submit" @click="submit"
-                                        class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
+                                        class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Save</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
 
                     </div>
                 </div>
                 <div>
                     <div class="py-8">
                         <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
-                            <div class="sm:col-span-4">
+                            <div class="lg:col-span-4 col-span-1">
                                 <dt class="text-sm font-medium text-gray-500">Career Level</dt>
                                 <dd class="mt-1 text-sm text-gray-900">{{job.career_level}}</dd>
                             </div>
-                            <div class="sm:col-span-4">
+                            <div class="lg:col-span-4 col-span-1">
                                 <dt class="text-sm font-medium text-gray-500">Experience Range</dt>
                                 <dd class="mt-1 text-sm text-gray-900">{{job.min_exp_y}} to {{job.max_exp_y}} years</dd>
                             </div>
-                            <div class="sm:col-span-4">
+                            <div class="lg:col-span-4 col-span-1">
                                 <dt class="text-sm font-medium text-gray-500">Salary Range</dt>
                                 <dd class="mt-1 text-sm text-gray-900" v-if="hide_salary">${{job.salary_min}} -
                                     ${{job.salary_max}}</dd>
                                 <dd class="mt-1 text-sm text-gray-900" v-else>Confidential</dd>
                             </div>
-                            <div class="sm:col-span-4">
+                            <div class="lg:col-span-4 col-span-1">
                                 <dt class="text-sm font-medium text-gray-500">Education Level</dt>
                                 <dd class="mt-1 text-sm text-gray-900">{{job.education_level}}</dd>
                             </div>
-                            <div class="sm:col-span-4">
+                            <div class="lg:col-span-4 col-span-1">
                                 <dt class="text-sm font-medium text-gray-500">Gender</dt>
                                 <dd class="mt-1 text-sm text-gray-900">{{job.gender}}</dd>
                             </div>
-                            <div class="sm:col-span-4">
+                            <div class="lg:col-span-4 col-span-1">
                                 <dt class="text-sm font-medium text-gray-500">Address</dt>
                                 <dd class="mt-1 text-sm text-gray-900">{{job.address}}</dd>
                             </div>
-                            <div class="sm:col-span-4">
+                            <div class="lg:col-span-4 col-span-1">
                                 <dt class="text-sm font-medium text-gray-500">Info Email</dt>
                                 <dd class="mt-1 text-sm text-gray-900">{{job.recipient_email}}</dd>
                             </div>
@@ -297,7 +297,7 @@
                 try {
                     const {
                         data
-                    } = await axios.get(`http://careers.technocloud.live/api/jobs/${this.id}`)
+                    } = await axios.get(`https://careers.technocloud.live/api/jobs/${this.id}`)
                     this.job = data.data
 
                 } catch (error) {
@@ -307,7 +307,6 @@
             async submit() {
                 const formData = new FormData();
                 this.form.file = this.$refs.file.files[0];
-                console.log(this.$refs.file.files[0]);
                 formData.append('name', this.form.name)
                 formData.append('email', this.form.email)
                 formData.append('phone', this.form.phone)
@@ -322,7 +321,7 @@
                     }
                     const {
                         data
-                    } = await axios.post(`http://careers.technocloud.live/api/jobs/${this.id}/apply`, formData,
+                    } = await axios.post(`https://careers.technocloud.live/api/jobs/${this.id}/apply`, formData,
                         config)
                     this.serverErrors = {}
                     this.$router.push({

@@ -55,8 +55,8 @@
                 class="
                   text-base
                   font-medium
-                  text-indigo-700
-                  hover:text-indigo-600
+                  text-blue-700
+                  hover:text-blue-600
                   cursor-pointer
                 "
                 >
@@ -91,7 +91,7 @@
               </div>
               <div>
                 <router-link type="button" :to="{ name: 'view-job', params: { id: job.id }}"
-                  class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                   Apply Now
                   <PaperAirplaneIcon class="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />
                 </router-link>
@@ -134,7 +134,6 @@
     methods: {
       getJobs() {
         axios.get('https://careers.technocloud.live/api/jobs').then(res => {
-          console.log(res.data.data)
           this.categories = res.data.data
         })
       },
