@@ -69,35 +69,46 @@
         </div>
       </section>
       <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:py-24 lg:px-8">
-        <div class="text-center text-2xl">Our Openings</div>
+        <div class="text-center text-2xl" v-if="categories.length > 0">Our Openings</div>
         <ul>
-          <li  v-for="(category, key) in categories" :key="key">
-            <div class="text-base text-gray-400 flex items-center mt-8 mb-2">
-              <OfficeBuildingIcon class="h-4 w-4 text-gray-600 mr-2" />{{category.name}}</div>
-            <div
-              v-for="job in category.jobs"
-              :key="job.id + 'i'"
-              class="text-gray-700 mb-4 bg-gray-50 hover:bg-gray-100 px-4 py-4 shadow-md border border-gray-200 shadow-blue-400 rounded-md flex items-center justify-between">
-              <div>
-                <div class="text-xl mb-2">{{job.title}}</div>
-                <div class="flex items-center text-sm">
-                  <span class="flex items-center mr-4">
-                    <LocationMarkerIcon class="h-4 w-4 text-gray-600 mr-1" aria-hidden="true" /> {{job.address}}</span>
-                  <span class="flex items-center mr-4">
-                    <OfficeBuildingIcon class="h-4 w-4 text-gray-600 mr-1" aria-hidden="true" /> {{job.type}}</span>
-                  <span class="flex items-center mr-4">
-                    <OfficeBuildingIcon class="h-4 w-4 text-gray-600 mr-1" aria-hidden="true" /> {{job.category_name}}</span>
+          <template v-if="categories.length > 0">
+            <li v-for="(category, key) in categories" :key="key">
+              <div class="text-base text-gray-400 flex items-center mt-8 mb-2">
+                <OfficeBuildingIcon class="h-4 w-4 text-gray-600 mr-2" />{{category.name}}</div>
+              <div v-for="job in category.jobs" :key="job.id + 'i'"
+                class="text-gray-700 mb-4 bg-gray-50 hover:bg-gray-100 px-4 py-4 shadow-md border border-gray-200 shadow-blue-400 rounded-md flex items-center justify-between">
+                <div>
+                  <div class="text-xl mb-2">{{job.title}}</div>
+                  <div class="flex items-center text-sm">
+                    <span class="flex items-center mr-4">
+                      <LocationMarkerIcon class="h-4 w-4 text-gray-600 mr-1" aria-hidden="true" />
+                      {{job.address}}</span>
+                    <span class="flex items-center mr-4">
+                      <OfficeBuildingIcon class="h-4 w-4 text-gray-600 mr-1" aria-hidden="true" /> {{job.type}}</span>
+                    <span class="flex items-center mr-4">
+                      <OfficeBuildingIcon class="h-4 w-4 text-gray-600 mr-1" aria-hidden="true" />
+                      {{job.category_name}}</span>
+                  </div>
+                </div>
+                <div>
+                  <router-link type="button" :to="{ name: 'view-job', params: { id: job.id }}"
+                    class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Apply Now
+                    <PaperAirplaneIcon class="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />
+                  </router-link>
                 </div>
               </div>
-              <div>
-                <router-link type="button" :to="{ name: 'view-job', params: { id: job.id }}"
-                  class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                  Apply Now
-                  <PaperAirplaneIcon class="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />
-                </router-link>
-              </div>
+            </li>
+          </template>
+          <div v-else class="text-center my-8 text-gray-500 text-xl">There is no Job opening write now, please come back
+            later.
+
+            <div class="mt-10 flex space-x-3 sm:border-l sm:border-transparent sm:pl-6 justify-center">
+              <router-link tag="a" :to="{name: 'Home'}"
+                class="inline-flex cursor-pointer items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                Go back home </router-link>
             </div>
-          </li>
+          </div>
         </ul>
       </div>
     </div>

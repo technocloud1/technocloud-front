@@ -81,6 +81,7 @@
             Apply To Position
             <MailIcon class="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />
           </router-link>
+          <div class="text-gray-500 mt-4" v-if="job.vacancy > 0">{{job.vacancy}} open positions</div>
           <div class="py-8">
             <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
               <div class="lg:col-span-4 col-span-1">
