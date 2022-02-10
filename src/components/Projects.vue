@@ -163,4 +163,8 @@ button.carousel__prev {
 .carousel__pagination-button--active { 
   @apply bg-gray-700
 }
+
+.carousel__track {
+  transform: translateX(0px) !important; 
+}
 </style>
