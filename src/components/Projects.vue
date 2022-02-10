@@ -6,7 +6,7 @@
         <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">Take a tour of your projects.</p>
         <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">Start building for free, then add a site plan to go live. Account plans unlock additional features.</p>
       </div>
-      <carousel :wrap-around="true">
+      <carousel :autoplay="2000">
         <slide v-for="slide in projects" :key="slide">
           <div class="relative bg-white-600 py-12 overflow-hidden">
             <div>
@@ -18,7 +18,7 @@
                   lg:grid
                   lg:grid-cols-2
                   lg:grid-flow-col-dense
-                  lg:gap-24
+                  lg:gap-4
                 "
               >
                 <div
@@ -107,6 +107,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 import zero from '../assets/images/zero.png'
 import deal from '../assets/images/deal.png'
 import rojetah from '../assets/images/rojetah.png'
+import trjim from '../assets/images/trjim-home.png'
 
 export default {
   components: {
@@ -135,6 +136,12 @@ export default {
           desc: 'Shop & win prizes that would change your life.',
           url: 'https://play.google.com/store/apps/details?id=deal.mart.dealmart',
           img: deal,
+        },
+        {
+          name: 'Trjim',
+          desc: 'HighProfessionals Translation Solutions You Can Trust.',
+          url: 'https://trjim.com/',
+          img: trjim,
         },
       ]
     }
