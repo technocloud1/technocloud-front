@@ -8,7 +8,7 @@
         <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">Start building for free, then add a site plan to go live.
           Account plans unlock additional features.</p>
       </div>
-      <carousel :autoplay="2000">
+      <carousel :autoplay="3000" :wrap-around="true">
         <slide v-for="slide in projects" :key="slide">
           <div class="relative bg-white-600 py-12 overflow-hidden">
             <div>
