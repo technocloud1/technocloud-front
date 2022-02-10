@@ -3,52 +3,45 @@
     <div class="max-w-7xl mx-auto pt-24 px-4">
       <div class="text-center">
         <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Our Projects</h2>
-        <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">Take a tour of your projects.</p>
-        <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">Start building for free, then add a site plan to go live. Account plans unlock additional features.</p>
+        <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">Take a tour of
+          your projects.</p>
+        <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">Start building for free, then add a site plan to go live.
+          Account plans unlock additional features.</p>
       </div>
       <carousel :autoplay="2000">
         <slide v-for="slide in projects" :key="slide">
           <div class="relative bg-white-600 py-12 overflow-hidden">
             <div>
-              <div
-                class="
+              <div class="
                   lg:mx-auto
                   lg:max-w-7xl
                   lg:px-8
                   lg:grid
                   lg:grid-cols-2
                   lg:grid-flow-col-dense
-                  lg:gap-4
-                "
-              >
-                <div
-                  class="
+                " :class="slide.name == 'Trjim' ? 'lg:gap-4' : 'lg:gap-24'">
+                <div class="
                     px-4
                     max-w-xl
                     mx-auto
                     sm:px-6
                     lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-2
-                  "
-                >
+                  ">
                   <div>
                     <div class="mt-6">
-                      <h2
-                        class="
+                      <h2 class="
                           text-3xl
                           font-extrabold
                           tracking-tight
                           text-gray-800
-                        "
-                      >
+                        ">
                         {{ slide.name }}
                       </h2>
                       <p class="mt-4 text-lg text-gray-600">
                         {{ slide.desc }}
                       </p>
                       <div class="mt-6">
-                        <a
-                          :href="slide.url"
-                          class="
+                        <a :href="slide.url" class="
                             inline-flex
                             px-8
                             py-2
@@ -60,8 +53,7 @@
                             text-gray-50
                             bg-blue-500
                             hover:bg-blue-600
-                          "
-                        >
+                          ">
                           Get Started
                         </a>
                       </div>
@@ -69,21 +61,15 @@
                   </div>
                 </div>
                 <div class="mt-12 sm:mt-16 lg:mt-0">
-                  <div
-                    class="
+                  <div class="
                       sm:pr-6
                       md:-ml-16
                       lg:px-0 lg:m-0 lg:relative lg:h-full
-                    "
-                  >
-                    <img
-                      class="
+                    ">
+                    <img class="
                         w-full
                         lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none
-                      "
-                      :src="slide.img"
-                      :alt="slide.name"
-                    />
+                      " :src="slide.img" :alt="slide.name" />
                   </div>
                 </div>
               </div>
@@ -101,25 +87,33 @@
 </template>
 
 <script>
-// If you are using PurgeCSS, make sure to whitelist the carousel CSS classes
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
-import zero from '../assets/images/zero.png'
-import deal from '../assets/images/deal.png'
-import rojetah from '../assets/images/rojetah.png'
-import trjim from '../assets/images/trjim-home.png'
-
-export default {
-  components: {
+  // If you are using PurgeCSS, make sure to whitelist the carousel CSS classes
+  import 'vue3-carousel/dist/carousel.css';
+  import {
     Carousel,
     Slide,
     Pagination,
-    Navigation,
-  },
-  data() {
-    return {
-      projects: [
-        {
+    Navigation
+  } from 'vue3-carousel';
+  import zero from '../assets/images/zero.png'
+  import deal from '../assets/images/deal.png'
+  import rojetah from '../assets/images/rojetah.png'
+  import trjim from '../assets/images/trjim-home.png'
+
+  export default {
+    components: {
+      Carousel,
+      Slide,
+      Pagination,
+      Navigation,
+    },
+    data() {
+      return {
+        projects: []
+      }
+    },
+    mounted() {
+      this.projects = [{
           name: 'ZeroCash',
           desc: 'The money App! No more cash nor wallets',
           url: 'https://play.google.com/store/apps/details?id=v1.zeroCash',
@@ -145,26 +139,27 @@ export default {
         },
       ]
     }
-  }
-};
+  };
 </script>
 <style lang="css">
-button.carousel__next {
-  right: 5rem;
-}
-button.carousel__prev {
-  left: 5rem;
-}
+  button.carousel__next {
+    right: 5rem;
+  }
 
-.carousel__prev,
-.carousel__next {
-  background-color: #2563eb;
-}
-.carousel__pagination-button--active { 
-  @apply bg-gray-700
-}
+  button.carousel__prev {
+    left: 5rem;
+  }
 
-.carousel__track {
-  transform: translateX(0px); 
-}
+  .carousel__prev,
+  .carousel__next {
+    background-color: #2563eb;
+  }
+
+  .carousel__pagination-button--active {
+    @apply bg-gray-700
+  }
+
+  .carousel__track {
+    transform: translateX(0px);
+  }
 </style>
