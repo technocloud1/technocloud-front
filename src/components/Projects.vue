@@ -165,6 +165,6 @@ button.carousel__prev {
 }
 
 .carousel__track {
-  transform: translateX(0px) !important; 
+  transform: translateX(0px); 
 }
 </style>
