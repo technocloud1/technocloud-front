@@ -13,7 +13,7 @@
             <div>
               <dt class="sr-only">Postal address</dt>
               <dd>
-                <p>Egypt office : Sama Towers, Maadi ,Cairo</p>
+                <p>Egypt office : Sama Towers 24D, Maadi ,Cairo</p>
                 <p>UAE office: Business bay, Citadel Tower, Dubai, UAE</p>
               </dd>
             </div>

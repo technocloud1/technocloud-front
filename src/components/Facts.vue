@@ -3,10 +3,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-          Conceptualizing a digital orientation
+          What makes us special?
         </h2>
         <p class="mt-3 text-xl text-gray-500 sm:mt-4">
-          Through our portfolio companies and our trusted brands, we provide tailored products to meet the varying preferences of our users at every aspect in their life.
+          It’s how we find new ways of doing the ordinary. Our teams around the world are on the forefront of innovation, pushing the boundaries of logistics, data, tech, ecommerce, healthcare, Fintech and more. 
         </p>
       </div>
     </div>
